@@ -45,7 +45,8 @@ import os
 import threading
 import struct
 import mmap
-import pkg_resources
+
+from .basics import resource_filename
 
 
 _PATH = os.path.dirname(__file__) or "."
@@ -70,11 +71,9 @@ class Wordbase:
         # Assumes that the appropriate lock has been acquired
         if __package__:
             # If we're inside a package (which is by far the most common case),
-            # obtain the name of a resource file through pkg_resources.
+            # obtain the name of a resource file through importlib.resources.
             # Note that the path below should NOT use os.path.join().
-            pname = pkg_resources.resource_filename(
-                __name__, "resources/{0}.dawg.bin".format(resource)
-            )
+            pname = resource_filename(__name__, "resources/{0}.dawg.bin".format(resource))
         else:
             pname = os.path.abspath(
                 os.path.join(_PATH, "resources", resource + ".dawg.bin")

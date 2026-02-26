@@ -56,9 +56,47 @@ import struct
 from pathlib import Path
 from heapq import nsmallest
 from operator import itemgetter
-from pkg_resources import resource_stream
+import importlib
+import importlib.resources
 
 import threading
+
+
+def resource_stream(package: str, resource: str):
+    """Open a binary stream for a package resource.
+
+    Historically this project used `pkg_resources.resource_stream` from
+    `setuptools`, but that dependency is not guaranteed to be installed in
+    minimal environments. The standard library `importlib.resources` provides
+    the same functionality.
+    """
+
+    try:
+        # Python 3.9+: preferred API
+        files = importlib.resources.files  # type: ignore[attr-defined]
+    except AttributeError:
+        # Older Python: fall back to deprecated but available API
+        return importlib.resources.open_binary(package, resource)
+
+    return files(importlib.import_module(package)).joinpath(resource).open("rb")
+
+
+def resource_filename(package: str, resource: str) -> str:
+    """Return a filesystem path for a package resource.
+
+    Replaces `pkg_resources.resource_filename` (setuptools). This assumes the
+    package is installed as real files on disk (e.g. editable install), which
+    is the case for normal development workflows.
+    """
+
+    try:
+        files = importlib.resources.files  # type: ignore[attr-defined]
+    except AttributeError:
+        raise RuntimeError(
+            "importlib.resources.files() is not available in this Python version"
+        )
+    path = files(importlib.import_module(package)).joinpath(resource)
+    return str(path)
 
 
 INT32 = struct.Struct("<i")

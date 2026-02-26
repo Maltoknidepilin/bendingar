@@ -78,7 +78,6 @@ from typing import (
 import struct
 import functools
 import mmap
-import pkg_resources
 
 # Import the CFFI wrapper for the bin.cpp C++ module (see also build_bin.py)
 # pylint: disable=no-name-in-module
@@ -105,6 +104,7 @@ from .basics import (
     KSNID_BITS,
     KSNID_MASK,
     MEANING_MASK,
+    resource_filename,
 )
 
 
@@ -114,9 +114,7 @@ class BinCompressed:
     allowing read-only lookups of word forms"""
 
     # Note: the resource path below should NOT use os.path.join()
-    _FNAME = pkg_resources.resource_filename(
-        __name__, "resources/" + BIN_COMPRESSED_FILE
-    )
+    _FNAME = resource_filename(__name__, "resources/" + BIN_COMPRESSED_FILE)
 
     def __init__(self) -> None:
         """We use a memory map, provided by the mmap module, to

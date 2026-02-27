@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="foroyskt",
+    name="bendingar",
     version="1.0.0",
     packages=find_packages("src"),
     package_dir={"": "src"},
@@ -22,5 +22,5 @@ setup(
     ],
     python_requires=">=3.8",
     setup_requires=["cffi>=1.15.1"],
-    cffi_modules=["src/foroyskt/bin_build.py:ffibuilder"],
+    cffi_modules=["src/bendingar/bin_build.py:ffibuilder"],
 )

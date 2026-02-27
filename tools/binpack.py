@@ -142,7 +142,7 @@ import time
 import struct
 from collections import defaultdict
 
-from foroyskt.basics import (
+from bendingar.basics import (
     Ksnid,
     BinEntryTuple,
     MarkOrder,
@@ -174,10 +174,10 @@ SUSPICIOUS_LETTERS = set("+@\\_")
 _path, _ = os.path.split(os.path.realpath(__file__))
 if _path.endswith(f"{os.sep}tools"):
     # Running from the tools directory (./tools)
-    _path = os.path.join(_path, "..", "src", "foroyskt")
+    _path = os.path.join(_path, "..", "src", "bendingar")
 else:
     # Running from the base directory (.)
-    _path = os.path.join(_path, "src", "foroyskt")
+    _path = os.path.join(_path, "src", "bendingar")
 
 # If running under a CI environment (such as GitHub Actions),
 # limit output to the essentials

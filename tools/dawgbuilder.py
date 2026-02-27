@@ -846,7 +846,7 @@ class DawgBuilder:
 def generate_dawgs():
     """ Build all required DAWGs """
     print("Starting DAWG build for BinPackage")
-    resources_path = os.path.join(basepath, "src", "foroyskt", "resources")
+    resources_path = os.path.join(basepath, "src", "bendingar", "resources")
     db = DawgBuilder()
 
     t0 = time.time()

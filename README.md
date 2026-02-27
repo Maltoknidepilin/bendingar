@@ -1,18 +1,18 @@
-# Foroysk
+# Bendingar
 
-Foroysk is a Python package for processing and analyzing the Faroese language. It provides tools for word lookups, inflections, and more. This is a fork of Miðeind's [BinPackage](https://github.com/mideind/BinPackage).
+Bendingar is a Python package for processing and analyzing the Faroese language. It provides tools for word lookups, inflections, and more. This is a fork of Miðeind's [BinPackage](https://github.com/mideind/BinPackage).
 
 ## Installation
 
-You can install Foroysk using pip:
+You can install Bendingar using pip:
 
-$ git clone https://github.com/AnnikaSimonsen/foroyskt
+$ git clone https://github.com/AnnikaSimonsen/bendingar
 
-$ cd foroyskt
+$ cd bendingar
 
 $ pip install -e .  # Note the dot!
 
-$ cd src/foroyskt/resources
+$ cd src/bendingar/resources
 
 #wget -O KRISTINsnid.csv.zip https://urdarbrunnur.rhi.hi.is/bendingar-nidurhal/KRISTINsnid.csv.zip
 

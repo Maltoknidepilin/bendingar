@@ -75,12 +75,12 @@ if MACOS:
 ffibuilder.cdef(declarations)  # type: ignore
 
 ffibuilder.set_source(  # type: ignore
-    "foroyskt._bin",
+    "bendingar._bin",
     # bin.cpp is written in C++ but must export a pure C interface.
     # This is the reason for the "extern 'C' { ... }" wrapper.
     'extern "C" {\n' + declarations + "\n}\n",
     source_extension=".cpp",
-    sources=["src/foroyskt/bin.cpp"],
+    sources=["src/bendingar/bin.cpp"],
     extra_compile_args=extra_compile_args,
     extra_link_args=extra_link_args,
 )

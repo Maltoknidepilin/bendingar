@@ -1,4 +1,4 @@
-from foroyskt import Bin
+from bendingar import Bin
 b = Bin()
 
 print("The following are the examples from BinPackage README but with Faroese usage.")

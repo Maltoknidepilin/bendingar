@@ -27,7 +27,7 @@
         SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
     This module exposes the BinPackage API, i.e. the identifiers that are
-    directly accessible via the 'foroyskt' module object after importing it.
+    directly accessible via the 'bendingar' module object after importing it.
 
 """
 
